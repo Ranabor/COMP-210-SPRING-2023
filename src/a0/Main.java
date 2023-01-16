@@ -7,11 +7,13 @@ public class Main {
         System.out.println("Your Java version: " + System.getProperty(("java.version")));
 
         // Task 2 here
-
+        System.out.println(helloWorld());
     }
 
     // Task 1 here
-
+    public static String helloWorld(){
+        return "Hello World";
+    }
 
 
 }
