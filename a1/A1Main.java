@@ -40,7 +40,7 @@ public class A1Main {
             if(nextInt % 2 == 0){
                 even.add(nextInt);
             }
-            else if(nextInt % 2 == 1){
+            if(nextInt % 2 == 1){
                 even.add(nextInt);
             }
          }
