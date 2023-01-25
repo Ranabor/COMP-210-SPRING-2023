@@ -49,7 +49,6 @@ public class A1Main {
          and we are done.  Hint:  This is easier with the printStats method. */
 
         printStats(even, odd);
-        input.close();
   } 
 
       
