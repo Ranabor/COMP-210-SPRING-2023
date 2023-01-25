@@ -107,15 +107,16 @@ public class Summer {
    if (index == 0){
      return average;
    }
-
+   int localIndex = 0;
    int current = 0;
    for(int i = 0; i < index; i ++){
     current = nums[i];
     if(current > thresh){
         average += current;
+        localIndex ++;
     }
    }
-   average = average/index;
+   average = average/localIndex;
    return average;
    }
    
