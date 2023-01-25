@@ -83,7 +83,7 @@ public class Summer {
       if (index == 0){
         return average;
       }
-      average = sum()/index;
+      average = this.sum()/index;
       return average;
 
    }
