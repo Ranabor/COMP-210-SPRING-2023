@@ -41,7 +41,7 @@ public class A1Main {
                 even.add(nextInt);
             }
             else{
-                even.add(nextInt);
+                odd.add(nextInt);
             }
          }
         
