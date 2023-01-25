@@ -40,7 +40,7 @@ public class A1Main {
             if(nextInt % 2 == 0){
                 even.add(nextInt);
             }
-            if(nextInt % 2 == 1){
+            else{
                 even.add(nextInt);
             }
          }
@@ -61,52 +61,40 @@ public class A1Main {
     
       System.out.print("Number of evens: ");
       System.out.print(evenSummer.count());
-      /*Your code here */
       System.out.println();
       System.out.print("Sum of evens: ");
       System.out.print(evenSummer.sum());
-      /*Your code here */
       System.out.println();
       System.out.print("Average of evens: ");
       System.out.print(evenSummer.average());
-      /*Your code here */
       System.out.println();
       System.out.print("Largest even: ");
       System.out.print(evenSummer.high());
-      /*Your code here */
       System.out.println();
       System.out.print("Smallest even: ");
       System.out.print(evenSummer.low());
-      /*Your code here */
       System.out.println();
       System.out.print("Average of evens over 10: ");
       System.out.print(evenSummer.avgOver(10));
-      /*Your code here */
       System.out.println();
       
       System.out.print("Number of odds: ");
       System.out.print(oddSummer.count());
-      /*Your code here */
       System.out.println();
       System.out.print("Sum of odds: ");
       System.out.print(oddSummer.sum());
-      /*Your code here */
       System.out.println();
       System.out.print("Average of odds: ");
       System.out.print(oddSummer.average());
-      /*Your code here */
       System.out.println();
       System.out.print("Largest odd: ");
       System.out.print(oddSummer.high());
-      /*Your code here */
       System.out.println();
       System.out.print("Smallest odd: ");
       System.out.print(oddSummer.low());
-      /*Your code here */
       System.out.println();
       System.out.print("Average of odds over 10: ");
       System.out.print(oddSummer.avgOver(10));
-      /*Your code here */
       System.out.println();
   }
 
