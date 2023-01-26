@@ -104,9 +104,7 @@ public class Summer {
    */
 
    double average = 0.0;
-   if (index == 0){
-     return average;
-   }
+   
    double localIndex = 0.0;
    int current = 0;
    for(int i = 0; i < index; i ++){
@@ -116,6 +114,9 @@ public class Summer {
         localIndex ++;
     }
    }
+   if (localIndex == 0){
+    return 0.0;
+  }
    average = average/localIndex;
    return average;
    }
