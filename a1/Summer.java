@@ -83,7 +83,7 @@ public class Summer {
       if (index == 0){
         return average;
       }
-      average = this.sum()/index;
+      average = this.sum()/(double) index;
       return average;
 
    }
@@ -107,7 +107,7 @@ public class Summer {
    if (index == 0){
      return average;
    }
-   int localIndex = 0;
+   double localIndex = 0.0;
    int current = 0;
    for(int i = 0; i < index; i ++){
     current = nums[i];
