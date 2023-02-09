@@ -68,8 +68,8 @@ public class ArrayList implements List {
 	
    /* Implementation given to you. Do not modify below this. */
    
-   @Override
-   public boolean ins(int index, double element) { 
+	@Override
+   public boolean ins(int index, double element) {
       if (index<0 || index>size || index>=this.MAX || this.size==this.MAX) { return false; }
       for (int i=this.size-1; i>=index; i--) {
         this.elts[i+1] = this.elts[i];
@@ -79,8 +79,8 @@ public class ArrayList implements List {
       return true;
    }
    
-   @Override
-   public boolean rem(int index) { 
+	@Override
+   public boolean rem(int index) {
       if (index>=size || index<0 || index>=this.MAX ) { return false; }
       for (int i=index; i<size-1; i++) {
          this.elts[i] = this.elts[i+1];
