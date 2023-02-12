@@ -98,7 +98,7 @@ public class ArrayList implements List {
          return true;
       }
       if(i == this.size){
-         this.ins(i, elt);
+         this.ins(0, elt);
          return true;
       }
     }
