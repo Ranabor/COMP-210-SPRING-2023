@@ -92,7 +92,7 @@ public class ArrayList implements List {
    }
 
    for(int i = 0; i <= this.size; i ++){
-      if(elt == this.elts[1]){
+      if(elt == this.elts[i]){
          this.rem(i);
          this.ins(0, elt);
          return true;
