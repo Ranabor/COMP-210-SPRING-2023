@@ -51,15 +51,15 @@ public class LinkedList implements List {
     //See List.java for a description of the method's behavior and examples.
     //Hint: Make sure you understand how this is different from find
     Node current = this.head;
-
-    for(int i = this.size; i >= 0; i++){
+    int latest = -1;
+    for(int i = 0; i < this.size; i++){
       if (current.getValue() == element){
-        return i;
+        latest = i;
       }
       current=current.getNext();
     }
 
-    return -1;  //Remove this when you implement the method!
+    return latest;  //Remove this when you implement the method!
   }
 
   public boolean inSort ( double elt ) {
