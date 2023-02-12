@@ -75,18 +75,18 @@ public class LinkedList implements List {
     }
 
     for(int i = 0; i <= this.size; i ++){
-      current = current.getNext();
       
-      next = current.getNext();
 
       if(i == this.size){
         this.insLast(elt);
         return true;
       }
       if(elt >= current.getValue() && elt < next.getValue()){
-        this.ins(i, elt);
+        this.ins(i + 1, elt);
         return true;
       }
+      current = current.getNext();
+      next = current.getNext();
      
    
     }
