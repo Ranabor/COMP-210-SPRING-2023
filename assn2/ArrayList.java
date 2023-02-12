@@ -32,26 +32,52 @@ public class ArrayList implements List {
       //See List.java for a description of the method's behavior and examples.
       //Hint: Ask yourself how this is different from the "ins" method.
       //Hint: Remember that we start indexing with 0 rather than 1.
+    
+      if (index >= this.size) {
+         return false;
+      }
 
-      /*Your code here */	
-	
+      this.elts[index] = element;
 	  
-    return false;  //Remove this when you implement the method!
+    return true;  //Remove this when you implement the method!
   }
       
   public int findLast ( double element ) {
     //See List.java for a description of the method's behavior and examples.
     //Hint: Make sure you understand how this is different from find
-	  
-    /*Your code here */
+    
+    for(int i = this.size -1; i >= 0; i --){
+      if (this.elts[i] == element){
+         return i;
+      }
+    }
+
 
     return -1;  //Remove this when you implement the method!
   }
 
   public boolean inSort ( double elt ) {
     //See List.java for a description of the method's behavior and examples.
+   if (this.size == 0){
+      this.ins(0, elt);
+      return true;
+   }
 
-    /*Your code here */
+   if (elt < this.elts[0]){
+      this.ins(0, elt);
+      return true;
+   }
+
+    for(int i = 1; i < this.size; i ++){
+      if(i == (this.size - 1) && this.size < this.MAX){
+         this.ins(i, elt);
+         return true;
+      }
+      if(elt >= this.elts[i-1] && elt < this.elts[i]){
+         this.ins(i, elt);
+         return true;
+      }
+    }
 	  
     return false;  //Remove this when you implement the method!
   }
@@ -61,15 +87,29 @@ public class ArrayList implements List {
     //See List.java for a description of the method's behavior and examples.
     //Hint: Do any of the methods you're already given help? 
 
-    /*Your code here */
+    if (this.size == 0){
+      this.ins(0, elt);
+   }
+
+   for(int i = 0; i <= this.size; i ++){
+      if(elt == this.elts[1]){
+         this.rem(i);
+         this.ins(0, elt);
+         return true;
+      }
+      if(i == this.size){
+         this.ins(i, elt);
+         return true;
+      }
+    }
 	  
     return false;  //Remove this when you implement the method!
   }
 	
    /* Implementation given to you. Do not modify below this. */
    
-	@Override
-   public boolean ins(int index, double element) {
+   @Override
+   public boolean ins(int index, double element) { 
       if (index<0 || index>size || index>=this.MAX || this.size==this.MAX) { return false; }
       for (int i=this.size-1; i>=index; i--) {
         this.elts[i+1] = this.elts[i];
@@ -79,8 +119,8 @@ public class ArrayList implements List {
       return true;
    }
    
-	@Override
-   public boolean rem(int index) {
+   @Override
+   public boolean rem(int index) { 
       if (index>=size || index<0 || index>=this.MAX ) { return false; }
       for (int i=index; i<size-1; i++) {
          this.elts[i] = this.elts[i+1];
