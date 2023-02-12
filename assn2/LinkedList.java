@@ -52,7 +52,7 @@ public class LinkedList implements List {
     //Hint: Make sure you understand how this is different from find
     Node current = this.head;
 
-    for(int i = 0; i < this.size; i++){
+    for(int i = this.size; i >= 0; i++){
       if (current.getValue() == element){
         return i;
       }
@@ -65,9 +65,9 @@ public class LinkedList implements List {
   public boolean inSort ( double elt ) {
     //See List.java for a description of the method's behavior and examples.
 
-    double previous = this.head.getValue();
-    double next = this.head.getNext().getValue();
+    
     Node current = this.head;
+    Node next = this.head.getNext();
 
     if(elt < this.head.getValue()){
       this.ins(0, elt);
@@ -75,19 +75,20 @@ public class LinkedList implements List {
     }
 
     for(int i = 0; i <= this.size; i ++){
+      current = current.getNext();
+      
+      next = current.getNext();
+
       if(i == this.size){
         this.insLast(elt);
         return true;
       }
-      if(elt >= previous && elt < next){
+      if(elt >= current.getValue() && elt < next.getValue()){
         this.ins(i, elt);
         return true;
       }
-
-      current = current.getNext();
-      previous = current.getValue();
-      next = current.getNext().getValue();
-
+     
+   
     }
     
     
