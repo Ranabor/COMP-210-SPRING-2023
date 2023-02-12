@@ -105,7 +105,8 @@ public class LinkedList implements List {
       return true;
     }
     else{
-      this.ins(index_at, elt);
+      this.rem(index_at);
+      this.ins(0, elt);
       return true;
     }
   }
