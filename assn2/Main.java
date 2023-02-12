@@ -2,10 +2,10 @@ package assn2;
 
 public class Main {
    public static void main (String[] args) {
-      List lst = new ArrayList(100);
+      //List lst = new ArrayList(100);
       
       /*Sample code is provided below for you to examine for testing purposes. */
-      //List lst = new LinkedList();
+      List lst = new LinkedList();
 
       Tester tst = new Tester();
 

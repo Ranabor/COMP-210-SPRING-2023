@@ -13,29 +13,84 @@ public class LinkedList implements List {
   // return values (e.g., "-1" for findLast) so that the code will
   // initially compile.  You should remove the default return value
   // when you implment the methods.
-//=================================================================
+//=================s================================================
    
   public boolean set ( int index, double element ) {
       //See List.java for a description of the method's behavior and examples.
       //Hint: Ask yourself how this is different from the "ins" method.
       //Hint: Remember that we start indexing with 0 rather than 1.
+      Node current = this.head;
+      Node temp = this.head;
+      int i = 0;
+      if (index >= this.size) {
+        return false;
+     }
 
-      /*Your code here */
+     if(index == 0){
+      Node newNode = new NodeImpl(element, head.getNext());
+      this.head = newNode;
+     }
+     
+     while(current != null) {
+      if(i == (index-1)){
+        temp = current;
+      }
+
+      if(i == index) {
+        Node newNode = new NodeImpl(element, current.getNext());
+        temp.setNext(newNode);
+        return true;
+      } 
+      current=current.getNext(); i++;
+    }
+
       return false;  //Remove this when you implement the method!
   }
       
   public int findLast ( double element ) {
     //See List.java for a description of the method's behavior and examples.
     //Hint: Make sure you understand how this is different from find
+    Node current = this.head;
 
-    /*Your code here */
+    for(int i = 0; i < this.size; i++){
+      if (current.getValue() == element){
+        return i;
+      }
+      current=current.getNext();
+    }
+
     return -1;  //Remove this when you implement the method!
   }
 
   public boolean inSort ( double elt ) {
     //See List.java for a description of the method's behavior and examples.
 
-    /*Your code here */
+    double previous = this.head.getValue();
+    double next = this.head.getNext().getValue();
+    Node current = this.head;
+
+    if(elt < this.head.getValue()){
+      this.ins(0, elt);
+      return true;
+    }
+
+    for(int i = 0; i <= this.size; i ++){
+      if(i == this.size){
+        this.insLast(elt);
+        return true;
+      }
+      if(elt >= previous && elt < next){
+        this.ins(i, elt);
+        return true;
+      }
+
+      current = current.getNext();
+      previous = current.getValue();
+      next = current.getNext().getValue();
+
+    }
+    
+    
     return false;  //Remove this when you implement the method!
   }
    
@@ -43,8 +98,15 @@ public class LinkedList implements List {
     //See List.java for a description of the method's behavior and examples.
     //Hint: Do any of the methods already provided to you help?
 
-    /*Your code here */
-    return false;  //Remove this when you implement the method!
+    int index_at = this.find(elt);
+    if(index_at == -1){
+      this.ins(0, elt);
+      return true;
+    }
+    else{
+      this.ins(index_at, elt);
+      return true;
+    }
   }
   
   /* Implementation given to you. Do not modify below this. */
