@@ -112,13 +112,17 @@ public class BSTImpl implements BST {
     // interface method ==================================================
     public int insert(int val) {
         /*See BST.java for method specification */
+
+        if(this.root == null){ this.root=new NodeImpl(val); size=1; } ;
+
         return insert_r(this.root, val).getValue();
         /* Hint: Don't forget to update size */
         /* Hint: You can find examples of how to create a new Node object elsewhere in the code */
 
     }
 
-    private Node insert_r(Node current, int val) {
+    private Node insert_r(Node current, int val) {      
+      
       int value = current.getValue();
       if (val == value){
         return current;
