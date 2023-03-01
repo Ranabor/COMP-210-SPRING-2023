@@ -119,8 +119,8 @@ public class BSTImpl implements BST {
 
     }
 
-    private Node insert_r(Node root, int val) {
-      Node current = root;
+    private Node insert_r(Node roots, int val) {
+      Node current = roots;
       int value = current.getValue();
       if (val == value){
         return(current);
@@ -156,8 +156,8 @@ public class BSTImpl implements BST {
         return findMin_r(this.root).getValue();
     }
     
-    private Node findMin_r(Node root) {
-      Node current = root;
+    private Node findMin_r(Node roots) {
+      Node current = roots;
 
       if(current.getLeft() == null){
         return current;
@@ -176,14 +176,14 @@ public class BSTImpl implements BST {
         return findMax_r(this.root).getValue();
       }
       
-      private Node findMax_r(Node root) {
-        Node current = root;
+      private Node findMax_r(Node roots) {
+        Node current = roots;
   
         if(current.getRight() == null){
           return current;
         }
         else{
-          return findMin_r(current.getRight());
+          return findMax_r(current.getRight());
         }
       }
     
@@ -197,8 +197,8 @@ public class BSTImpl implements BST {
       return get_r(this.root, val);
     }
 
-    private Node get_r (Node root, int val){
-      Node curr = root;
+    private Node get_r (Node roots, int val){
+      Node curr = roots;
       int value = curr.getValue();
       if (val == value){
         return curr;
