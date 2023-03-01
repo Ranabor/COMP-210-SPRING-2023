@@ -112,40 +112,111 @@ public class BSTImpl implements BST {
     // interface method ==================================================
     public int insert(int val) {
         /*See BST.java for method specification */
-        /*Your code here */
+        Node insertion = insert_r(this.root, val);
+        return insertion.getValue();
         /* Hint: Don't forget to update size */
         /* Hint: You can find examples of how to create a new Node object elsewhere in the code */
 
-      return 0; // Dummy return statement.  Remove when you implement!
+    }
+
+    private Node insert_r(Node root, int val) {
+      Node current = root;
+      int value = current.getValue();
+      if (val == value){
+        return(current);
+      }
+      else if (val < value){
+        if (current.getLeft() == null){
+          current.setLeft(new NodeImpl(val));
+          this.size += 1;
+          return current.getLeft();
+        }
+        else {
+          return insert_r(current.getLeft(), val);
+        }
+      }
+      else if (val > value){
+        if (current.getRight() == null){
+          current.setRight(new NodeImpl(val));
+          this.size += 1;
+          return current.getRight();
+        }
+        else {
+          return insert_r(current.getRight(), val);
+        }
+      }
+
+      return current;
     }
 
     @Override
     // interface method ==================================================
     public int findMin() {
         /*See BST.java for method specification */
-        /* Your code here */
-        
-        return Integer.MAX_VALUE; // Dummy return statement.  Remove when you implement!
+        return findMin_r(this.root).getValue();
     }
     
+    private Node findMin_r(Node root) {
+      Node current = root;
+
+      if(current.getLeft() == null){
+        return current;
+      }
+      else{
+        return findMin_r(current.getLeft());
+      }
+    }
+
     @Override
     // interface method ==================================================
     public int findMax() {
         /*See BST.java for method specification */
         /* Your code here */
 
-       return Integer.MIN_VALUE; // Dummy return statement.  Remove when you implement!
-
-    }
+        return findMax_r(this.root).getValue();
+      }
+      
+      private Node findMax_r(Node root) {
+        Node current = root;
+  
+        if(current.getRight() == null){
+          return current;
+        }
+        else{
+          return findMin_r(current.getRight());
+        }
+      }
     
     @Override
     // interface method ==================================================
     public Node get(int val) {
         /*See BST.java for method specification */
         /* Hint: Make sure you return a Node, not an int */
-        /* Your code here */
+        
 
-      return null; // Dummy return statement.  Remove when you implement!
+      return get_r(this.root, val);
+    }
+
+    private Node get_r (Node root, int val){
+      Node curr = root;
+      int value = curr.getValue();
+      if (val == value){
+        return curr;
+      }
+      else if (val < value){
+        if (curr.getLeft() == null){
+          return null;
+        }
+        return get_r(curr.getLeft(), val);
+      }
+      else if (val > value){
+        if (curr.getRight() == null){
+          return null;
+        }
+        return get_r(curr.getRight(), val);
+      }
+
+      return curr;
     }
     
     @Override

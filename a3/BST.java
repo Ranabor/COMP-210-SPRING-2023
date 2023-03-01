@@ -73,7 +73,7 @@ public interface BST {
       * but make no changes to the tree... no new nodes added
       *
       * @param int value to be inserted in tree
-      * @return integer that was insrted after insertion is done.
+      * @return integer that was inserted after insertion is done.
       *
       * Example 1: Suppose we have the tree below:
       *
