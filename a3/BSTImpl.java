@@ -112,18 +112,16 @@ public class BSTImpl implements BST {
     // interface method ==================================================
     public int insert(int val) {
         /*See BST.java for method specification */
-        Node insertion = insert_r(this.root, val);
-        return insertion.getValue();
+        return insert_r(this.root, val).getValue();
         /* Hint: Don't forget to update size */
         /* Hint: You can find examples of how to create a new Node object elsewhere in the code */
 
     }
 
-    private Node insert_r(Node roots, int val) {
-      Node current = roots;
+    private Node insert_r(Node current, int val) {
       int value = current.getValue();
       if (val == value){
-        return(current);
+        return current;
       }
       else if (val < value){
         if (current.getLeft() == null){
@@ -135,7 +133,7 @@ public class BSTImpl implements BST {
           return insert_r(current.getLeft(), val);
         }
       }
-      else if (val > value){
+      else {
         if (current.getRight() == null){
           current.setRight(new NodeImpl(val));
           this.size += 1;
@@ -146,7 +144,6 @@ public class BSTImpl implements BST {
         }
       }
 
-      return current;
     }
 
     @Override
@@ -156,8 +153,7 @@ public class BSTImpl implements BST {
         return findMin_r(this.root).getValue();
     }
     
-    private Node findMin_r(Node roots) {
-      Node current = roots;
+    private Node findMin_r(Node current) {
 
       if(current.getLeft() == null){
         return current;
@@ -176,8 +172,7 @@ public class BSTImpl implements BST {
         return findMax_r(this.root).getValue();
       }
       
-      private Node findMax_r(Node roots) {
-        Node current = roots;
+      private Node findMax_r(Node current) {
   
         if(current.getRight() == null){
           return current;
@@ -197,8 +192,8 @@ public class BSTImpl implements BST {
       return get_r(this.root, val);
     }
 
-    private Node get_r (Node roots, int val){
-      Node curr = roots;
+    private Node get_r (Node curr, int val){
+   
       int value = curr.getValue();
       if (val == value){
         return curr;
