@@ -285,6 +285,7 @@ public class BSTImpl implements BST {
       }
       if (!this.contains(current.getValue())){
         insert(current.getValue());
+        totalAdded += 1;
         totalAdded += merge_r(current.getLeft());
         totalAdded += merge_r(current.getRight());
       }
