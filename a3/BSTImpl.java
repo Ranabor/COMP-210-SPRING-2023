@@ -280,6 +280,9 @@ public class BSTImpl implements BST {
     }
     private int merge_r(Node current){
       int totalAdded = 0;
+      if (current == null){
+        return totalAdded;
+      }
       if (!this.contains(current.getValue())){
         insert(current.getValue());
         totalAdded += merge_r(current.getLeft());
