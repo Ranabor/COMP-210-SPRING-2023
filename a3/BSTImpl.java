@@ -233,7 +233,7 @@ public class BSTImpl implements BST {
         else if (this.root.getRight() == null && this.root.getLeft() != null){
           return false;
         }
-        return true; // Dummy return statement.  Remove when you implement!
+        return false; 
     }
 
     public boolean isFullTree_r(Node current) {
