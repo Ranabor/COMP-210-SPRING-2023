@@ -274,9 +274,24 @@ public class BSTImpl implements BST {
       // and do this.insert(value)
       // have to somehow count when an add is successful
       // so we can return the number of nodes added
-         /* Your code here */
+        int total = 0;
+        total += merge_r(nbt.getRoot());
         
-        return 0;  // Dummy return statement.  Remove when you implement!
+        
+        return total;  // Dummy return statement.  Remove when you implement!
+    }
+    private int merge_r(Node current){
+      int totalAdded = 0;
+      if (this.contains(current.getValue())){
+        totalAdded += merge_r(current.getLeft());
+      }
+      else{
+        insert(current.getValue());
+        totalAdded += 1;
+      }
+
+
+      return totalAdded;
     }
 
     public int getMaxLeafHeightDiff () {
