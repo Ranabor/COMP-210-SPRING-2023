@@ -233,7 +233,7 @@ public class BSTImpl implements BST {
         else if (this.root.getRight() == null && this.root.getLeft() != null){
           return false;
         }
-        return false; 
+        return isFullTree_r(this.root); 
     }
 
     public boolean isFullTree_r(Node current) {
@@ -250,6 +250,18 @@ public class BSTImpl implements BST {
             return false;
           }
         }
+        if (current.getRight() != null){
+          full = isFullTree_r(current.getRight());
+        }
+        else{
+          if (current.getLeft() == null){
+            return true;
+          }
+          else if (current.getLeft() != null){
+            return false;
+          }
+        }
+      
         return full;
     }
     
