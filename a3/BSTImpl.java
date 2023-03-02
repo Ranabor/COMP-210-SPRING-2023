@@ -236,7 +236,7 @@ public class BSTImpl implements BST {
         return isFullTree_r(this.root); 
     }
 
-    public boolean isFullTree_r(Node current) {
+    private boolean isFullTree_r(Node current) {
       boolean full = false;  
       
       if (current.getLeft() != null){
@@ -282,9 +282,21 @@ public class BSTImpl implements BST {
     public int getMaxLeafHeightDiff () {
         /*See BST.java for method specification */
         /* Hint: Which of the methods you're given are most similar to this? */
-        /* Your code here */
+        if (this.root == null){
+          return 0;
+        }
+        int height = this.height();
+        int minHeight = this.heightdiff_r(this.root);
         
-        return 0;// Dummy return statement.  Remove when you implement!
+        return height-minHeight;// Dummy return statement.  Remove when you implement!
     }
-
+    private int heightdiff_r(Node c) {
+      // private inner "helper" method with different signature
+      // this helper method uses recursion to traverse
+      // and process the recursive structure of the tree of cells
+      if (c==null) return -1;
+      int lht = heightdiff_r(c.getLeft());
+      int rht = heightdiff_r(c.getRight());
+      return Math.min(lht,rht) + 1;
+    }
 }
