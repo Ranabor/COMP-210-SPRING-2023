@@ -113,7 +113,7 @@ public class BSTImpl implements BST {
     public int insert(int val) {
         /*See BST.java for method specification */
 
-        if(this.root == null){ this.root=new NodeImpl(val); size=1; } ;
+        if(this.root == null){ this.root=new NodeImpl(val); size=1; }
 
         return insert_r(this.root, val).getValue();
         /* Hint: Don't forget to update size */
@@ -224,8 +224,33 @@ public class BSTImpl implements BST {
         /*See BST.java for method specification */
         /* Hint: How can you "break-up" the problem into smaller pieces? */
         /* Your code here */
+        if (this.root == null || (this.root.getLeft()==null && this.root.getRight()==null)){
+          return true;
+        }
+        if (this.root.getLeft() == null && this.root.getRight() != null){
+          return false;
+        }
+        else if (this.root.getRight() == null && this.root.getLeft() != null){
+          return false;
+        }
+        return isFullTree_r(this.root); // Dummy return statement.  Remove when you implement!
+    }
 
-        return false; // Dummy return statement.  Remove when you implement!
+    public boolean isFullTree_r(Node current) {
+      boolean full = false;  
+      
+      if (current.getLeft() != null){
+          full = isFullTree_r(current.getLeft());
+        }
+        else{
+          if (current.getRight() == null){
+            return true;
+          }
+          else if (current.getRight() != null){
+            return false;
+          }
+        }
+        return full;
     }
     
     @Override
