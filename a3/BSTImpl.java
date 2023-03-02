@@ -274,23 +274,17 @@ public class BSTImpl implements BST {
       // and do this.insert(value)
       // have to somehow count when an add is successful
       // so we can return the number of nodes added
-        int total = 0;
-        total += merge_r(nbt.getRoot());
-        
-        
-        return total;  // Dummy return statement.  Remove when you implement!
+       
+        int total = merge_r(nbt.getRoot());
+        return total; 
     }
     private int merge_r(Node current){
       int totalAdded = 0;
-      if (this.contains(current.getValue())){
-        totalAdded += merge_r(current.getLeft());
-      }
-      else{
+      if (!this.contains(current.getValue())){
         insert(current.getValue());
-        totalAdded += 1;
+        totalAdded += merge_r(current.getLeft());
+        totalAdded += merge_r(current.getRight());
       }
-
-
       return totalAdded;
     }
 
